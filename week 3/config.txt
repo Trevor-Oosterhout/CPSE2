@@ -1,0 +1,3 @@
+(493,112) CIRCLE blue 10
+(177,356) RECTANGLE red (30,40)
+(287,262) PICTURE cat.jpg
