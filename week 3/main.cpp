@@ -11,12 +11,6 @@
 #include "picture.hpp"
 
 
-	sf::Vector2f cast_to_vectorf( const sf::Vector2i & z){
-		 sf::Vector2f r = {
-			static_cast< float >(z.x),
-			static_cast< float >(z.y)};
-		return r;
-	}
 
 int main( int argc, char *argv[] ){
 	std::vector< drawable* > objects = {};
@@ -40,11 +34,8 @@ int main( int argc, char *argv[] ){
 			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)
 				&& o->contain(sf::Mouse::getPosition( window ))
 			){
-				sf::Vector2f mousepos = cast_to_vectorf(sf::Mouse::getPosition( window ));
-
 				while(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-					mousepos = cast_to_vectorf(sf::Mouse::getPosition( window ));
-					o->jump(mousepos);
+					o->jump(sf::Mouse::getPosition( window ));
 					window.clear();
 					for(auto & o : objects){
 						o->draw( window );
